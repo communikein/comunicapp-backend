@@ -2,6 +2,9 @@
 node_modules/
 functions/node_modules/
 
+#firebaserc
+.firebaserc
+
 #logs
 *.log
 
