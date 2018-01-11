@@ -1,0 +1,9 @@
+{
+  "name": "functions",
+  "description": "Auth module",
+  "dependencies": {
+    "firebase-admin": "~5.4.0",
+    "firebase-functions": "^0.7.0"
+  },
+  "private": true
+}

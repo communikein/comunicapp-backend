@@ -1,0 +1,15 @@
+#modules
+node_modules/
+functions/node_modules/
+
+#firebaserc
+.firebaserc
+
+#logs
+*.log
+
+#OSX files
+.DS_Store
+
+#private
+private/
