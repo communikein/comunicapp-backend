@@ -6,6 +6,7 @@
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const moment = require('moment');
 
 try {admin.initializeApp(functions.config().firebase);} catch(e) {}
 
@@ -16,11 +17,15 @@ exports = module.exports = functions.firestore
   .document('news/{newsId}')
   .onCreate(event => {
     var newsValue = event.data.data();
+    var date = moment().format();
+
+    try {date = moment(newsValue.timestamp).format();} catch(e) {} 
 
     var payload = {
       data: {
         title : newsValue.title,
-        timestamp : newsValue.timestamp
+        timestamp : date,
+        id : event.params.newsId
       }
     };
 
@@ -29,5 +34,6 @@ exports = module.exports = functions.firestore
       .catch(function(error) {
         console.log("Error sending message for topic news:", error);
       });
+    return 0;
 });
 
